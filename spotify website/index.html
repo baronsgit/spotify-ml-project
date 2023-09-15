@@ -1,65 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="'en">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset = "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
-
-    <!-- Include Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List of Recommendations</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
+
 <body>
-<!-- https://baronlins.wixsite.com/spotify-ml 
-CLIENT_ID = "576cc8dd27e5406b9d61a4947119e708" 
-CLIENT_SECRET = "7d4b7c5d5bc04ce09b180c6cd69fb08e"
--->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="./index.html">Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="./Artist.html">Artist Information</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./Popularity.html">Artist Recommendations</a>
-            </li>
-        </ul>
-    </div>
-</nav>
 
-<div class="well">
-<div class="container mt-2">
-    <div class="row justify-content-center">
-      <div class="col-md-12">
-        <div class="jumbotron text-center">
-          <h1>Spotify ML</h1>
-          <p>designed by Landon</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="well">
-            <h5>What artist do you want recommendations for?</h5>
-            <form action="./Artist.html" method="post">
-              <input type="text" name="name" id="inputArtist" required> <br><br>
-              <h5>How popular do you want the recs to be? 0-100</h5>
-              <input type="number" number="number" id="inputRec" required><br><br>
-              <input type="Submit" class="file_submit">
-            </form>
-          </div>
-        </div>
+    <div>
+        <h2>Which song should we base our recommendations from?</h2>
+        <input type = "text" id = "songInput"> <br> <br>
+
+        <button type = "button" id = "myButton" onclick = myFunction()>Submit</button> 
+
+        <h3 id = "message"></h3>
+        
+    </div>
+
+    <div id="music"></div>
+
+    <div class="container-flex">
+      <div class="col-md-6 offset-md-4">
+        <table class="table table-striped">
+          <tr class="bg-info">
+            <th>Artist</th>
+            <th>Name</th>
+            <th>Album</th>
+            <th>Photo</th>
+          </tr>
+          
+          <tbody id="dyTable">
+            
+          </tbody>
+          
+        </table>
       </div>
     </div>
-</div>
-</div>
 
-<!-- Include Bootstrap JS and jQuery (optional) -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div class="word-wrap:">
+        <div id="song-list"></div>
+    </div>
 
+    <style>
+        body {background-color: white; text-align: center; color: black}
+    </style>
+
+    <script src="./MHstatic.js"></script>
+    <!-- <div class = "container">
+        <div class = "row">
+            <div class="col-md-12 jumbotron text-center">
+                <h1>Recommendation Visualization</h1>
+                <p>Input your data and explore the Dataset</p>
+              </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = "col-md-3">
+                <div class="well">
+                    <h5>What artist do you want recommendations for?</h5>
+                        <form action = "/result" method = "post">
+                        <input type = "text" name = "name" id="inputArtist" required> <br><br>
+                        <h5>How popular do you want the recs to be? 0-100</h5>
+                        <input type = "number" number = "number" id="inputRec" required><br><br>
+                        <input type = "Submit" class = "file_submit">
+                    </form>
+                </div>
+
+            </div> -->
+
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+    <!-- <script src="./main.py"></script> -->
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- <script src="/static.js"></script> -->
+    
 </body>
+
+
 </html>

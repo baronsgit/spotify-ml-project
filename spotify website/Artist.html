@@ -2,50 +2,63 @@
 <html lang="'en">
 
 <head>
-    <meta charset = "UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Recommendation Visualization</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="./app.css" rel="stylesheet">
+  <title>Recommendation Visualization</title>
 </head>
 
 <body>
-  <div>
-    <h2>Which artist interests you?</h2>
-    <input type = "text" id = "artistInput"> <br> <br>
-<!-- 
+  <div class="main">
+    <div>
+      <h2>Which artist interests you?</h2>
+      <input type="text" id="artistInput"> <br> <br>
+      <!-- 
     <h2>Popularity? (Between 0-100)</h2>
     <input type = "text" id = "popInput"> <br> <br> -->
 
-    <button type = "button" id = "myButton" onclick = myFunction()>Submit</button> 
+      <button type="button" id="myButton" onclick=myFunction()>Submit</button>
 
-    <h3 id = "message"></h3>
-    
-</div>
+      <h3 id="message"></h3>
+
+      <div id="image_url_1"></div>
+      <div id="artist_followers"></div>
+
+    </div>
 
     <div id="music"></div>
 
-    <div class="col-md-5">
+    <!-- <div class="col-md-5">
         <div id="bar"></div>
+    </div> -->
+    <div class="col-md-5">
+      <div id="popularity-chart"></div>
     </div>
     <div class="col-md-5">
-        <div id="popularity-chart"></div>
-      </div>
+      <div id="tempo-histogram"></div>
+    </div>
     <div class="col-md-5">
-        <div id="tempo-histogram"></div>
-      </div>
+      <div id="bubble-chart"></div>
+    </div>
     <div class="col-md-5">
-        <div id="bubble-chart"></div>
-      </div>
-      <div class="col-md-5">
-        <div id="radar-chart"></div>
-      </div>
-      <div class="col-md-5">
-        <div id="gauge"></div>
-      </div>
+      <div id="radar-chart"></div>
+    </div>
+    <div class="col-md-5">
+      <div id="gauge"></div>
+    </div>
+    <div class="col-md-5">
+      <div id="valance"></div>
+    </div>
 
-     <style>
-      body {background-color: white; text-align: center; color: black}
+    <style>
+      body {
+        background-color: white;
+        text-align: center;
+        color: black
+      }
     </style>
     <script src="/staticArtist.js"></script>
     <!-- <div class = "container">
@@ -74,20 +87,16 @@
 
 
 
-        </div>
+  </div>
+
+  <!-- <script src="./main.py"></script> -->
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="/staticArtist.js"></script>
 
 
-
-
-    </div>
-    <!-- <script src="./main.py"></script> -->
-
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="/staticArtist.js"></script>
-
-    
 </body>
 
 

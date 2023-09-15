@@ -8,6 +8,7 @@ import spotipy
 from flask import Flask,jsonify
 from dotenv import load_dotenv
 import os
+from flask_cors import CORS
 from spotipy.oauth2 import SpotifyClientCredentials
 
 

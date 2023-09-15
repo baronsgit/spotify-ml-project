@@ -6,24 +6,39 @@ function myFunction() {
     message.innerHTML = " You got good taste with " + artistInput.value;
     init()
 }
-
+function artistpic(){
+    d3.json(url).then(function(data){
+        var img = document.createElement("img");
+        img.src = data[0].artist_image;
+        document.getElementById("image_url_1").appendChild(img);
+    })
+}
+function artistfollowers(){
+    d3.json(url).then(function(data){
+        var text = document.createElement("text");
+        text.innerHTML = 'Follower Count: ' +  data[0].artist_followers;
+        document.getElementById("artist_followers").appendChild(text);
+    }) 
+ }
 function init() {
-    url = `http://127.0.0.1:5501/api/v1.0/${artistInput.value}`
+    url = `https://spotifymlflask.azurewebsites.net/api/v1.0/${artistInput.value}`
     d3.json(url).then(function(data){
         console.log(data)
         plotPopularityBarGraph(data)
-        plotDurationBarGraph(data)
+        // plotDurationBarGraph(data)
         plotGaugeChart(data)
         plotTempoHistogram(data)
         plotBubbleChart(data)
+        plotValanceHistogram(data)
+        artistpic(data)
+        artistfollowers(data)
     })
 console.log(url)
 }
 
-
 function plotPopularityBarGraph(jsonData) {
     // Extract the first array from the JSON data
-    var Array = jsonData;
+    var Array = jsonData[1];
 
     // Extract the popularity values from the first array
     var popularityData = Array.map(function(song) {
@@ -62,7 +77,7 @@ function plotPopularityBarGraph(jsonData) {
 
 function plotTempoHistogram(jsonData) {
     // Extract the tempo values from the first array
-    var Array = jsonData;
+    var Array = jsonData[1];
     var ArrayPopularity = Array.map(function(song) {
         return song.popularity;
     });
@@ -106,7 +121,7 @@ function plotTempoHistogram(jsonData) {
 
 
 function plotBubbleChart(jsonData) {
-    var Array = jsonData;
+    var Array = jsonData[1];
     var ArrayPopularity = Array.map(function(song) {
         return song.popularity
     });
@@ -156,7 +171,7 @@ function plotBubbleChart(jsonData) {
 
 
 function plotGaugeChart(jsonData){
-    var Array = jsonData;
+    var Array = jsonData[1];
     var ArrayEnergy = Array.map(function(song){
         return song.popularity
     })
@@ -196,7 +211,7 @@ function plotGaugeChart(jsonData){
 
 // // can be used for recommendations too. needs to be added to html for its own plot and its own function
 
-
+// Need to update to work with the new JSON array
 function plotDurationBarGraph(jsonData) {
     var durationData = jsonData.map(function(song) {
         return song.duration;
@@ -226,3 +241,48 @@ function plotDurationBarGraph(jsonData) {
     // Combine the trace and layout and plot the graph
     Plotly.newPlot('bar', [trace], layout);
 }
+
+function plotValanceHistogram(jsonData) {
+    // Extract the tempo values from the first array
+    var Array = jsonData[1];
+    var ArrayTempo = Array.map(function(song) {
+        return song.tempo;
+    });
+    var ArrayValence = Array.map(function(song){
+        return song.valence
+    });
+
+    var Artist = Array.map(function(song){
+        return song.artist
+    })
+    var Song = Array.map(function(song){
+        return song.song
+    })
+    // Create the traces for the histogram
+    var trace = {
+        x: ArrayValence,
+        y:ArrayTempo,
+        mode:'markers',
+        type: 'scatter',
+        name: 'Artist & Songs',
+        text: Song
+    };
+
+    // Create the layout for the histogram
+    var layout = {
+        title: 'Correlaton of Valance and Tempo of Songs for '+ artistInput.value,
+        xaxis: {
+            title: 'Valance '
+        },
+        yaxis: {
+            title: 'Tempo'
+        },
+        height: 600,
+        width: 600
+    };
+
+    // Combine the traces and layout and plot the graph
+    Plotly.newPlot('valance', [trace], layout);
+}
+// need to add popout for information on the html for each of the scatterplots
+

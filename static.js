@@ -11,7 +11,7 @@ function myFunction() {
 }
 
 function init() {
-    url = `http://127.0.0.1:5501/api/v1.0/${artistInput.value}/${popInput.value}`
+    url = `https://spotifymlflask.azurewebsites.net/api/v1.0/${artistInput.value}/${popInput.value}`
     d3.json(url).then(function(data){
         console.log(data)
         plotDurationBarGraph(data)
