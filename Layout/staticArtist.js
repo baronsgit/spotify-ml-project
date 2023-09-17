@@ -4,6 +4,7 @@ let message = document.querySelector("#message");
 
 var chartH = 400;
 var chartW = 400;
+
 function myFunction() {
     // if (artistInput.value == "") {
     //     artistInput.value = "EVE";// alert("Please enter an artist name");
@@ -309,5 +310,5 @@ $('#artistInput').keypress(function(e){
     }
 });
 
-myFunction()
+// myFunction()
 

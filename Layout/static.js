@@ -24,9 +24,9 @@ console.log(url)
 }
 
 
-d3.json(url).then(function(data){
-    console.log(data)
-})
+// d3.json(url).then(function(data){
+//     console.log(data)
+// })
 
 
 
