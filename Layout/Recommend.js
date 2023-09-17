@@ -1,6 +1,3 @@
-// let artistInput = $("#artistInput");
-// let popInput = $("#popInput");
-
 var artistVal = "";
 var popVal = "";
 var chartH = 400;
