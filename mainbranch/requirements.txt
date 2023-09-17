@@ -1,0 +1,5 @@
+pandas
+spotipy
+flask
+flask_cors
+scikit-learn

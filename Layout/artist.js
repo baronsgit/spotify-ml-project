@@ -25,6 +25,7 @@ function loadPage() {
     $("#message").html("You got good taste with " + artistVal);
 
     url = `https://spotifymlflask.azurewebsites.net/api/v1.0/${artistVal}`
+    console.log(url);
     d3.json(url).then(function (data) {
         // console.log(data)
         plotPopularityBarGraph(data)

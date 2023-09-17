@@ -29,8 +29,10 @@
   .main {
     margin-left: 200px; /* Same as the width of the sidebar */
     padding: 10px 10px;
-    background-color: lightsalmon;
-
+    /* background-color: lightsalmon; */
+   /* create a gradient background color */ 
+    background-image: linear-gradient(to right, lightsalmon, whitesmoke);
+    height: 100vh; /* Full-height: remove this if you want "auto" height */
   }
   
   /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
