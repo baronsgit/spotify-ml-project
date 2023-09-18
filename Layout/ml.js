@@ -19,11 +19,13 @@ function loadSongData() {
     // Get the user-entered song    
     var songVal = $('#songInput').val();
     // console.log(songVal);
+    // $('#results').style.display = 'block';
 
     url = `https://spotifymlflask.azurewebsites.net/api/v1.0/trackrec/${songVal}`
     d3.json(url).then(function (data) {
         // console.log(data)
         populateTable(data)
+        $('#results').attr('style', 'visibility: visible;');
     });
 
 }

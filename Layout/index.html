@@ -10,8 +10,9 @@
     <title>Spotify ML</title>
 </head>
 <!--about, artist visualization, artist recommendation-->
+
 <body>
-     
+
     <div class="sidenav">
         <a href="./index.html">Home</a>
         <a href="./Artist.html">Artist Information</a>
@@ -20,77 +21,55 @@
         <a href="./About.html">About</a>
     </div>
 
-    <div class="main">
-        <div class="container py-4">
-            <header class="pb-3 mb-4 border-bottom">
-                <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-                    <span class="fs-4">Spotify ML</span>
-                </a>
-            </header>
-
-            <div class="well">
-                <div class="container mt-2">
-                    <div class="row justify-content-center">
-                        <div class="col-md-12">
-                            <div class="jumbotron text-center">
-                                <h1>Spotify ML</h1>
-                                <p>designed by Landon</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="well">
-                                    <h5>What artist do you want recommendations for?</h5>
-                                    <form action="./Artist.html" method="post">
-                                        <input type="text" name="name" id="inputArtist" required> <br><br>
-                                        <h5>How popular do you want the recs to be? 0-100</h5>
-                                        <input type="number" number="number" id="inputRec" required><br><br>
-                                        <input type="Submit" class="file_submit">
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="fs-6" style="height: 97vh; background-image: linear-gradient(to left, lightblue, whitesmoke);">
+        <!-- <header class="bg-primary bg-gradient text-light text-center py-4"> -->
+        <header>
+            <nav class="navbar navbar-light bg-primary bg-gradient">
+                <div class="container">
+                    <h1 class="navbar-brand fs-2 text-light">Spotify ML</h1>
                 </div>
-            </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <div class="container mt-4">
+            <section>
+                <h2>Artist Information</h2>
+                <p>
+                    Learn more about your favorite artists and their music.
+                    <a href="./Artist.html">Explore</a>
+                </p>
+            </section>
         </div>
-
-        <div class="container mt-5">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Artist</th>
-                        <th>Song</th>
-                        <th>Album Name</th>
-                        <th>Album Photo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <script>
-                        var myArray = [
-                            { "artist": "A", "song": "1", "album_name": "I", "album_photo": "pic" },
-                            { "artist": "B", "song": "2", "album_name": "II", "album_photo": "pic" },
-                            { "artist": "C", "song": "3", "album_name": "III", "album_photo": "pic" },
-                            { "artist": "D", "song": "4", "album_name": "IV", "album_photo": "pic" }
-                        ];
-
-                        for (var i = 0; i < myArray.length; i++) {
-                            document.write("<tr>");
-                            document.write("<td>" + myArray[i].artist + "</td>");
-                            document.write("<td>" + myArray[i].song + "</td>");
-                            document.write("<td>" + myArray[i].album_name + "</td>");
-                            document.write("<td><img src='" + myArray[i].album_photo + "' alt='Album Photo' width='100'></td>");
-                            document.write("</tr>");
-                        }
-                    </script>
-                </tbody>
-            </table>
+        <hr class="my-4">
+        <div class="container mt-4">
+            <section>
+                <h2>Artist Recommendations</h2>
+                <p>
+                    Discover new artists and songs based on your preferences.
+                    <a href="./Recommend.html">Explore</a>
+                </p>
+            </section>
+        </div>
+        <hr class="my-4">
+        <div class="container mt-4">
+            <section>
+                <h2>Machine Learning</h2>
+                <p>
+                    Dive into the world of machine learning and its impact on music analysis.
+                    <a href="./ML.html">Explore</a>
+                </p>
+            </section>
         </div>
     </div>
 
+    <footer class="container my-0">
+        &copy; 2023 Spotify ML. All rights reserved.
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
     <script src="./MHstatic.js"></script>
 </body>
 

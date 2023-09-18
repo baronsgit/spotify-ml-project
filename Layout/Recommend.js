@@ -4,7 +4,7 @@ var chartH = 300;
 var chartW = 300;
 
 $(document).ready(function () {
-    testvalues();
+    // testvalues();
 
     $("#myButton").click(function () {
         loadPage();
