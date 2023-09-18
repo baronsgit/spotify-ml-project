@@ -16,8 +16,10 @@
         <a href="./index.html">Home</a>
         <a href="./Artist.html">Artist Information</a>
         <a href="./Recommend.html">Artist Recommendations</a>
+        <a href="./ML.html">Machine Learning</a>
         <a href="./About.html">About</a>
     </div>
+
     <div class="main">
         <div class="px-4 border border-0">
             <div id="userinput" class="form col-md-4 offset-md-4">
@@ -37,29 +39,35 @@
                     <span id="message" class="fs-4 fw-bolder offset-md-1"></span>
                 </div>
             </div>
+
             <div class="row mb-3">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div id="bar"></div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div id="pie"></div>
+                </div>
+                <div class="col-md-4">
+                    <div id="te"></div>
+                    <div id="resultTE"></div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <div id="tempo-histogram"></div>
+                    <div id="dd"></div>
+                    <p id="resultDD"></p>
                 </div>
                 <div class="col-md-6">
                     <div id="gauge"></div>
                 </div>
             </div>
         </div>
-
-        <!-- js library references -->
-        <script src="https://d3js.org/d3.v7.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-        <script src="./recommend.js"></script>
 </body>
+
+<!-- js library references -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="./recommend.js"></script>
 
 </html>

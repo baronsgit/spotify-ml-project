@@ -13,11 +13,11 @@ function myFunction() {
 function init() {
     url = `https://spotifymlflask.azurewebsites.net/api/v1.0/${artistInput.value}/${popInput.value}`
     d3.json(url).then(function(data){
-        console.log(data)
+        // console.log(data)
         plotDurationBarGraph(data)
-        plotPopularityPieChart(data)
+        plotPieChart(data)
         plotGaugeChart(data)
-        plotTempoHistogram(data)
+        plotDanceability(data)
         calculatePearsonCorrelationDP(data)
         calculatePearsonCorrelationDD(data)
         calculatePearsonCorrelationTE(data)
@@ -26,9 +26,9 @@ console.log(url)
 }
 
 
-d3.json(url).then(function(data){
-    console.log(data)
-})
+// d3.json(url).then(function(data){
+//     console.log(data)
+// })
 
 
 
@@ -161,7 +161,7 @@ function calculatePearsonCorrelationDP(jsonData) {
 //     }
 //     Plotly.newPlot('pie', [trace], display);
 // }
-function plotPopularityPieChart(jsonData) {
+function plotPieChart(jsonData) {
     var data = jsonData; // Assuming data is an array of objects
 
     // Create an array of traces where each trace represents a data point
@@ -227,7 +227,7 @@ function calculatePearsonCorrelationTE(jsonData) {
   
   }
 
-function plotTempoHistogram(jsonData) {
+function plotDanceability(jsonData) {
     var data = jsonData; // Assuming data is an array of objects
 
     // Create an array of traces where each trace represents a data point
@@ -262,7 +262,7 @@ function plotTempoHistogram(jsonData) {
 
 function calculatePearsonCorrelationDD(jsonData) {
     const data = jsonData;
-  
+    
     const xValues = data.map(song => song.danceability);
     const yValues = data.map(song => song.popularity);
   

@@ -1,10 +1,10 @@
 var artistVal = "";
 var popVal = "";
-var chartH = 400;
-var chartW = 400;
+var chartH = 300;
+var chartW = 300;
 
 $(document).ready(function () {
-    // testvalues();
+    testvalues();
 
     $("#myButton").click(function () {
         loadPage();
@@ -32,9 +32,12 @@ function loadPage() {
     d3.json(url).then(function (data) {
         // console.log(data)
         plotDurationBarGraph(data)
-        plotPopularityPieChart(data)
+        plotPieChart(data)
+        plotDanceability(data)
+        calculatePearsonCorrelationDD(data)
+        plotTempoEnergy(data)
+        calculatePearsonCorrelationTE(data)
         plotGaugeChart(data)
-        plotTempoHistogram(data)
     });
 }
 
@@ -64,16 +67,16 @@ function plotDurationBarGraph(jsonData) {
         title: 'Duration of Recommended Songs Based on ' + artistVal,
         titlefont: { size: 18, wieght: "bold" },
         xaxis: {
-            title: 'Song', 
+            title: 'Song',
             titlefont: { size: 18, wieght: "bold", y: 1.2 },
             domain: [0, 1]
         },
         yaxis: {
-            title: 'Duration (Seconds)',  
+            title: 'Duration (Seconds)',
             titlefont: { size: 18, wieght: "bold" },
-            domain: [0.35, 1]              
+            domain: [0.35, 1]
         },
-        font: { size: 8 }        
+        font: { size: 8 }
     };
 
     // Combine the trace and layout and plot the graph
@@ -83,7 +86,8 @@ function plotDurationBarGraph(jsonData) {
 // need to make a plot of the artist only to show case difference between artist and recommendations
 // also make it into ascending order
 
-function plotPopularityPieChart(jsonData) {
+function plotPieChart(jsonData) {
+    console.log(jsonData);
     jsonData.sort((a, b) => b.popularity - a.popularity);
     jsonData = jsonData.slice(0, 30);
     var artistSongCount = {};
@@ -108,48 +112,6 @@ function plotPopularityPieChart(jsonData) {
     }
     Plotly.newPlot('pie', [trace], display, size = [chartH, chartW]);
 }
-
-function plotTempoHistogram(jsonData, jsonArtist) {
-    // Extract the tempo values from the first array
-    var Array = jsonData;
-    var ArrayPopularity = Array.map(function (song) {
-        return song.popularity;
-    });
-    var ArrayDanceability = Array.map(function (song) {
-        return song.danceability
-    });
-
-    var Artist = Array.map(function (song) {
-        return song.artist
-    })
-    var Song = Array.map(function (song) {
-        return song.song
-    })
-
-    // Create the traces for the histogram
-    var trace1 = {
-        x: ArrayDanceability,
-        y: ArrayPopularity,
-        mode: 'markers',
-        type: 'scatter',
-        name: 'Artist & Songs',
-        text: Artist
-    };
-    // Create the layout for the histogram
-    var layout = {
-        title: 'Correlaton of Popularity and Danceability of Song Recs based on ' + artistVal,
-        xaxis: {
-            title: 'Danceability '
-        },
-        yaxis: {
-            title: 'Popularity'
-        }
-    };
-
-    // Combine the traces and layout and plot the graph
-    Plotly.newPlot('tempo-histogram', [trace1], layout, size = [chartH, chartW]);
-}
-// need to add popout for information on the html for each of the scatterplots
 
 function plotGaugeChart(jsonData) {
     var Array = jsonData;
@@ -190,4 +152,134 @@ function plotGaugeChart(jsonData) {
         }
     }
     Plotly.newPlot("gauge", [trace]);
+}
+
+function plotDanceability(jsonData) {
+    var data = jsonData; // Assuming data is an array of objects
+
+    // Create an array of traces where each trace represents a data point
+    var traces = data.map(function (song) {
+        return {
+            x: [song.danceability], // X-coordinate
+            y: [song.popularity],   // Y-coordinate
+            hovertemplate: '<b>Artist:</b> ' + song.artist + '<br><b>Song:</b> ' + song.song + '<br><b>Album Name:</b> ' + song.album_data.album_name,
+            mode: 'markers',
+            type: 'scatter',
+            name: song.song,
+            text: [song.song] // Text for hover
+        };
+    });
+
+    // Create the layout for the scatter plot
+    var layout = {
+        title: 'Correlation of Popularity and Danceability of Songs for ' + artistInput.value,
+        xaxis: {
+            title: 'Danceability'
+        },
+        yaxis: {
+            title: 'Popularity'
+        }
+    };
+
+    // Plot the graph with the array of traces
+    Plotly.newPlot('dd', traces, layout, size = [chartH, chartW]);
+}
+
+function calculatePearsonCorrelationDD(jsonData) {
+    const data = jsonData;
+
+    const xValues = data.map(song => song.danceability);
+    const yValues = data.map(song => song.popularity);
+
+    const calculateMean = (values) => values.reduce((acc, val) => acc + val, 0) / values.length;
+    const meanX = calculateMean(xValues);
+    const meanY = calculateMean(yValues);
+
+    const sumOfDifferencesProduct = xValues.reduce((acc, x, index) => {
+        const differenceX = x - meanX;
+        const differenceY = yValues[index] - meanY;
+        return acc + (differenceX * differenceY);
+    }, 0);
+
+    const sumOfSquaredDifferenceX = xValues.reduce((acc, x) => {
+        const differenceX = x - meanX;
+        return acc + (differenceX * differenceX);
+    }, 0);
+
+    const sumOfSquaredDifferenceY = yValues.reduce((acc, y) => {
+        const differenceY = y - meanY;
+        return acc + (differenceY * differenceY);
+    }, 0);
+
+    const correlationCoefficient = sumOfDifferencesProduct / Math.sqrt(sumOfSquaredDifferenceX * sumOfSquaredDifferenceY);
+
+    document.getElementById("resultDD").textContent = `Pearson Correlation Coefficient For Danceability and Popularity: ${correlationCoefficient.toFixed(2)}`;
+
+    return correlationCoefficient;
+
+}
+
+function plotTempoEnergy(jsonData) {
+    var data = jsonData; // Assuming data is an array of objects
+
+    // Create an array of traces where each trace represents a data point
+    var traces = data.map(function (song) {
+        return {
+            x: [song.tempo], // X-coordinate
+            y: [song.energy],   // Y-coordinate
+            hovertemplate: '<b>Artist:</b> ' + song.artist + '<br><b>Song:</b> ' + song.song + '<br><b>Album Name:</b> ' + song.album_data.album_name,
+            mode: 'markers',
+            type: 'scatter',
+            name: song.song,
+            text: [song.song] // Text for hover
+        };
+    });
+
+    // Create the layout for the scatter plot
+    var layout = {
+        title: 'Tempo and Energy of Songs for ' + artistInput.value,
+        xaxis: {
+            title: 'Tempo'
+        },
+        yaxis: {
+            title: 'Energy'
+        }
+    };
+
+    // Plot the graph with the array of traces
+    Plotly.newPlot('te', traces, layout, size = [chartH, chartW]);
+}
+
+function calculatePearsonCorrelationTE(jsonData) {
+    const data = jsonData;
+
+    const xValues = data.map(song => song.tempo);
+    const yValues = data.map(song => song.energy);
+
+    const calculateMean = (values) => values.reduce((acc, val) => acc + val, 0) / values.length;
+    const meanX = calculateMean(xValues);
+    const meanY = calculateMean(yValues);
+
+    const sumOfDifferencesProduct = xValues.reduce((acc, x, index) => {
+        const differenceX = x - meanX;
+        const differenceY = yValues[index] - meanY;
+        return acc + (differenceX * differenceY);
+    }, 0);
+
+    const sumOfSquaredDifferenceX = xValues.reduce((acc, x) => {
+        const differenceX = x - meanX;
+        return acc + (differenceX * differenceX);
+    }, 0);
+
+    const sumOfSquaredDifferenceY = yValues.reduce((acc, y) => {
+        const differenceY = y - meanY;
+        return acc + (differenceY * differenceY);
+    }, 0);
+
+    const correlationCoefficient = sumOfDifferencesProduct / Math.sqrt(sumOfSquaredDifferenceX * sumOfSquaredDifferenceY);
+
+    document.getElementById("resultTE").textContent = `Pearson Correlation Coefficient For Tempo and Energy: ${correlationCoefficient.toFixed(2)}`;
+
+    return correlationCoefficient;
+
 }
