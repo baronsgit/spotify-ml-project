@@ -12,56 +12,61 @@
 
 <body>
 
-  <div class="sidenav">
-    <a href="./index.html">Home</a>
-    <a href="./Artist.html">Artist Information</a>
-    <a href="./Recommend.html">Artist Recommendations</a>
-    <a href="./ML.html">Machine Learning</a>
-    <a href="./About.html">About</a>
-  </div>
-
-  <div class="main artiststyle">
-    <div class="px-4 border border-0">
-      <!-- <h2>Which artist interests you?</h2> -->
-      <div id="userinput" class="col-md-4 offset-md-4">
-        <div class="col-md-12 mb-1 row">
-          <!-- <label for="artistInput" class="form-label">Which artist interests you?</label> -->
-          <input class="form-control" type="text" id="artistInput" placeholder="Which artist interests you?">
-        </div>
-        <div class="col-md-12">
-          <button class="btn btn-primary" type="submit" id="myButton">Submit</button>
-        </div>
-      </div>
-
-      <div class="row my-4">
-        <div class="col-md-4 offset-md-4">
-          <span id="message" class="fs-4 fw-bolder offset-md-1"></span>
-          <div id="image_url_1" class="my-1"></div>
-          <div id="artist_followers" class="fs-5 fw-light badge bg-secondary offset-md-2"></div>
-        </div>
-      </div>
-
-      <div class="row mb-3">
-        <div class="col-md-4">
-          <div id="popularity-chart"></div>
-        </div>
-        <div class="col-md-4">
-          <div id="tempo-histogram"></div>
-        </div>
-        <div class="col-md-4">
-          <div id="bubble-chart"></div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 offset-md-2">
-          <div id="gauge"></div>
-        </div>
-        <div class="col-md-4">
-          <div id="valance"></div>
-        </div>
+  <div class="row">
+    <div class="col-auto">
+      <div class="sidenav">
+        <a href="./index.html">Home</a>
+        <a href="./Artist.html">Artist Information</a>
+        <a href="./Recommend.html">Artist Recommendations</a>
+        <a href="./ML.html">Machine Learning</a>
+        <a href="./About.html">About</a>
       </div>
     </div>
 
+    <div class="col">
+      <div class="main artiststyle">
+        <div class="px-4 border border-0">
+          <!-- <h2>Which artist interests you?</h2> -->
+          <div id="userinput" class="col-md-4 offset-md-4">
+            <div class="col-md-12 mb-1 row">
+              <!-- <label for="artistInput" class="form-label">Which artist interests you?</label> -->
+              <input class="form-control" type="text" id="artistInput" placeholder="Which artist interests you?">
+            </div>
+            <div class="col-md-12">
+              <button class="btn btn-primary" type="submit" id="myButton">Submit</button>
+            </div>
+          </div>
+
+          <div class="row my-4">
+            <div class="col-md-4 offset-md-4">
+              <span id="message" class="fs-4 fw-bolder offset-md-1"></span>
+              <div id="image_url_1" class="my-1"></div>
+              <div id="artist_followers" class="fs-5 fw-light badge bg-secondary offset-md-2"></div>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <div id="popularity-chart"></div>
+            </div>
+            <div class="col-md-4">
+              <div id="tempo-histogram"></div>
+            </div>
+            <div class="col-md-4">
+              <div id="bubble-chart"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 offset-md-2">
+              <div id="gauge"></div>
+            </div>
+            <div class="col-md-4">
+              <div id="valance"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 
 <script src="https://d3js.org/d3.v7.min.js"></script>

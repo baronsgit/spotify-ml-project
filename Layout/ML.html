@@ -13,79 +13,84 @@
 
 <body>
 
-    <div class="sidenav">
-        <a href="./index.html">Home</a>
-        <a href="./Artist.html">Artist Information</a>
-        <a href="./Recommend.html">Artist Recommendations</a>
-        <a href="./ML.html">Machine Learning</a>
-        <a href="./About.html">About</a>
-    </div>
+    <div class="row">
+        <div class="col-auto">
+            <div class="sidenav">
+                <a href="./index.html">Home</a>
+                <a href="./Artist.html">Artist Information</a>
+                <a href="./Recommend.html">Artist Recommendations</a>
+                <a href="./ML.html">Machine Learning</a>
+                <a href="./About.html">About</a>
+            </div>
+        </div>
 
-    <div class="main mlstyle">
-        <div class="container mt-4">
-            <h1 class="mb-5">Song Recommendations (Machine Learning)</h1>
-            <h5>Enter a song to analyze:</h5>
+        <div class="col">
+            <div class="main mlstyle">
+                <div class="container mt-4">
+                    <h1 class="mb-5">Song Recommendations (Machine Learning)</h1>
+                    <h5>Enter a song to analyze:</h5>
 
-            <!-- Form to input song -->
-            <form id="songForm" class="mb-3">
-                <div class="input-group">
-                    <input type="text" class="form-control" id="songInput" placeholder="Enter a song...">
-                    <button type="submit" class="btn btn-primary">Analyze</button>
-                </div>
-            </form>
-
-            <div id="results" style="visibility: hidden;">
-                <div class="row">
-                    <h5 class="mb-1">You chose this song by this artist:</h5>
-                        <div>
-                            <table class="table caption-top table-success table-sm">
-                                <!-- <caption>You chose this song by this artist</caption> -->
-                                <thead class="table-secondary">
-                                    <tr>
-                                        <th>Artist</th>
-                                        <th>Song</th>
-                                        <th>Album</th>                                    
-                                        <th>Album Photo</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Data will be added dynamically using JavaScript -->
-                                    <tr>
-                                        <td><span id="recArtist"></span></td>
-                                        <td><span id="recSong"></span></td>
-                                        <td><span id="recAlbum"></span></td>
-                                        <td><span id="recAlbumPhoto"></span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <!-- Form to input song -->
+                    <form id="songForm" class="mb-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="songInput" placeholder="Enter a song...">
+                            <button type="submit" class="btn btn-primary">Analyze</button>
                         </div>
-                </div>
+                    </form>
 
-                <div class="row">
-                    <!-- Table to display data -->
-                    <h5 class="mb-1">Here is a list of recommendations:</h5>
-                        <div>
-                            <table id="songTable"
-                                class="table table-warning table-hover table-sm table-responsive table-bordered table-striped">
-                                <thead class="table-secondary">
-                                    <tr>
-                                        <th>Artist</th>
-                                        <th>Song</th>
-                                        <th>Album</th>
-                                        <th>Album Release Date</th>
-                                        <th>Album Photo</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Data will be added dynamically using JavaScript -->
-                                </tbody>
-                            </table>
+                    <div id="results" style="visibility: hidden;">
+                        <div class="row">
+                            <h5 class="mb-1">You chose this song by this artist:</h5>
+                            <div>
+                                <table class="table caption-top table-success table-sm">
+                                    <!-- <caption>You chose this song by this artist</caption> -->
+                                    <thead class="table-secondary">
+                                        <tr>
+                                            <th>Artist</th>
+                                            <th>Song</th>
+                                            <th>Album</th>
+                                            <th>Album Photo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Data will be added dynamically using JavaScript -->
+                                        <tr>
+                                            <td><span id="recArtist"></span></td>
+                                            <td><span id="recSong"></span></td>
+                                            <td><span id="recAlbum"></span></td>
+                                            <td><span id="recAlbumPhoto"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
+
+                        <div class="row">
+                            <!-- Table to display data -->
+                            <h5 class="mb-1">Here is a list of recommendations:</h5>
+                            <div>
+                                <table id="songTable"
+                                    class="table table-warning table-hover table-sm table-responsive table-bordered table-striped">
+                                    <thead class="table-secondary">
+                                        <tr>
+                                            <th>Artist</th>
+                                            <th>Song</th>
+                                            <th>Album</th>
+                                            <th>Album Release Date</th>
+                                            <th>Album Photo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Data will be added dynamically using JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
     <!-- JavaScript libraries -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -12,56 +12,66 @@
 </head>
 
 <body>
-    <div class="sidenav">
-        <a href="./index.html">Home</a>
-        <a href="./Artist.html">Artist Information</a>
-        <a href="./Recommend.html">Artist Recommendations</a>
-        <a href="./ML.html">Machine Learning</a>
-        <a href="./About.html">About</a>
-    </div>
-
-    <div class="main recommendstyle">
-        <div class="px-4 border border-0">
-            <div id="userinput" class="form col-md-4 offset-md-4">
-                <div class="col-md-12 mb-1 row">
-                    <input class="form-control" type="text" id="artistInput" placeholder="Which artist interests you?">
-                </div>
-                <div class="col-md-12 mb-1 row">
-                    <input class="form-control" type="text" id="popInput" placeholder="Popularity? (Between 0-100)">
-                </div>
-                <div class="col-md-12 row">
-                    <button class="btn btn-primary col-md-4 offset-md-4" type="submit" id="myButton">Submit</button>
-                </div>
+    <div class="row">
+        <div class="col-auto">
+            <div class="sidenav">
+                <a href="./index.html">Home</a>
+                <a href="./Artist.html">Artist Information</a>
+                <a href="./Recommend.html">Artist Recommendations</a>
+                <a href="./ML.html">Machine Learning</a>
+                <a href="./About.html">About</a>
             </div>
+        </div>
 
-            <div class="row my-4">
-                <div class="col-md-4 offset-md-4">
-                    <span id="message" class="fs-4 fw-bolder offset-md-1"></span>
-                </div>
-            </div>
+        <div class="col">
+            <div class="main recommendstyle">
+                <div class="px-4 border border-0">
+                    <div id="userinput" class="form col-md-4 offset-md-4">
+                        <div class="col-md-12 mb-1 row">
+                            <input class="form-control" type="text" id="artistInput"
+                                placeholder="Which artist interests you?">
+                        </div>
+                        <div class="col-md-12 mb-1 row">
+                            <input class="form-control" type="text" id="popInput"
+                                placeholder="Popularity? (Between 0-100)">
+                        </div>
+                        <div class="col-md-12 row">
+                            <button class="btn btn-primary col-md-4 offset-md-4" type="submit"
+                                id="myButton">Submit</button>
+                        </div>
+                    </div>
 
-            <div class="row mb-3">
-                <div class="col-md-4">
-                    <div id="bar"></div>
-                </div>
-                <div class="col-md-4">
-                    <div id="pie"></div>
-                </div>
-                <div class="col-md-4">    
-                    <div id="gauge"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div id="dd"></div>
-                    <p id="resultDD"></p>
-                </div>
-                <div class="col-md-6">
-                    <div id="te"></div>
-                    <div id="resultTE"></div>
+                    <div class="row my-4">
+                        <div class="col-md-4 offset-md-4">
+                            <span id="message" class="fs-4 fw-bolder offset-md-1"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <div id="bar"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div id="pie"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div id="gauge"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="dd"></div>
+                            <p id="resultDD"></p>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="te"></div>
+                            <div id="resultTE"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 </body>
 
 <!-- js library references -->
