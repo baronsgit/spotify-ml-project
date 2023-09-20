@@ -327,7 +327,7 @@ function calculatePearsonCorrelation(jsonData) {
   
     const correlationCoefficient = sumOfDifferencesProduct / Math.sqrt(sumOfSquaredDifferenceX * sumOfSquaredDifferenceY);
 
-    document.getElementById("result").textContent = `Pearson Correlation Coefficient For Valance and Tempo: ${correlationCoefficient.toFixed(2)}`;
+    document.getElementById("result").textContent = `Correlation For Valance and Tempo: ${correlationCoefficient.toFixed(2)}`;
 
   return correlationCoefficient;
   
