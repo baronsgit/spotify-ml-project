@@ -45,6 +45,11 @@
   /* Full-height: remove this if you want "auto" height */
 }
 
+/* set header tag style and inherit from main style */
+div .headerstyle {
+  margin-left: -22px;
+}
+
 .artiststyle {
   background-image: linear-gradient(to right, pink, whitesmoke);
 }

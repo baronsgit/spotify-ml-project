@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Recommendation Visualization</title>
+    <title>About</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="./app.css" rel="stylesheet">
@@ -29,84 +29,76 @@
                     <div class="container">
                         <h1 class="navbar-brand">About This Project</h1>
                         <p class="navbar-brand fs-4">Spotify ML</p>
-                        <p class="navbar-text fs-5">Created by: Heriberto Pelaez, Cameron Lee, Mateo Hwang, and Landon
+                        <p class="navbar-text fs-6">Created by: Heriberto Pelaez, Cameron Lee, Mateo Hwang, and Landon
                             Stubblefield</p>
-                        <!-- <p class="navbar-text">Data from Spotify</p> -->
-                        <!-- <p class="navbar-text">Visualization by D3.js</p> -->
                     </div>
                 </nav>
             </header>
             <!-- Add a section line under the header -->
             <div class="fs-5"
-                style="background-image: linear-gradient(to left, rgb(189, 238, 189), rgb(218, 226, 217)); height: 100vh;">
+                style="background-image: linear-gradient(to left, rgb(189, 238, 189), rgb(218, 226, 217)); height: 100%;">
                 <hr class="m-0">
                 <div class="container mt-5">
-                    <h1 class="text-success">About Spotify ML (Machine Learning)</h1>
-                    <p>The purpose of this project was to build data visualizations using Spotify's API. Users of the
-                        website
-                        would
-                        input an artist they want recommendations for and a popularity level, then the artist's top 10
-                        songs and
-                        100
-                        recommendations would be visualized on a variety of factors. This project would be accomplished
-                        through
-                        multiple steps.</p>
+                    <!-- <h2 class="text-success">Cameron</h2> -->
+                    <p>For this project, we built a Flask API that would pull data from the Spotify API with regards to
+                        user input. This API is hosted on azure at http://spotifymlflask.azurewebsites.net/. This API
+                        leverages the Spotipy library to pull information from the Spotify API and utilizes the Pandas
+                        library to create DataFrames that contain the song and their accompanying audio features.
+                        Additionally, this API also contains the K Nearest Neighbors Model, clustering songs based on
+                        the audio features provided by the Spotify API.
+                    </p>
+                </div>
 
-                    <p>Data is retrieved from an Azure API endpoint, subsequently parsed and structured for use in
-                        website
-                        visualization.</p>
+                <!-- <hr class="m-0"> -->
+                <div class="container my-4">
+                    <!-- <h2 class="text-success">Heriberto</h2> -->
+                    <p>With the API we wanted to make improvements and provide a more consistent visual presentation of
+                        the data. With the feedback we received I went ahead and removed some of the visuals that did
+                        not mesh with the data visualization and analysis we were trying to do.
+                        I added more analysis of different variables in the Spotify API, and added the artist
+                        information like the picture and followers to allow for a more personal return for results.
+                    </p>
+                </div>
 
-                    <p>Note: This solution to gather data is not the most efficient, as it would be simpler to run the
-                        app and
-                        data
-                        through Python. However, as this project is a learning exercise, we wanted to utilize our
-                        knowledge of
-                        SQL
-                        databases.</p>
+                <!-- <hr class="m-0"> -->
+                <div class="container my-4">
+                    <!-- <h2 class="text-success">Mateo</h2> -->
+                    <p>Using this API, we are able to work with all data that the Model provides once a song is
+                        requested by the user. Using JavaScript we were able to create functions that could build two
+                        dynamic tables. One table with the song that was chosen by the user and the second table with a
+                        list of song recommendations. Each table contains information of artist name, song name, album
+                        name, and a picture of the album art. These tables will change based on the user input, every
+                        time the submit button is pressed.</p>
+                </div>
+
+                <!-- <hr class="m-0"> -->
+                <div class="container my-4">
+                    <!-- <h2 class="text-success">Landon</h2> -->
+                    <p>We employed a combination of HTML, Bootstrap 5, CSS, and jQuery/JavaScript to
+                        design and structure our webpages and interactive visualizations. I was responsible for the
+                        overall layout and website design. I created an account in azure in order to host the website. I
+                        also included some text in the machine learning page that would dynamically load after a song
+                        was inputted, used CSS for page color design, and used Datatables (Javascript library) in order
+                        to display the data which include features such as sorting, paging, and searching.
+                    </p>
                 </div>
 
                 <hr class="m-0">
                 <div class="container my-4">
-                    <h1 class="text-success">Purpose</h1>
-                    <p>The purpose of this project was to build data visualizations using Spotify's API. Users of the
-                        website
-                        would
-                        input an artist they want recommendations for and a popularity level, then the artist's top 10
-                        songs and
-                        100
-                        recommendations would be visualized on a variety of factors. This project would be accomplished
-                        through
-                        multiple steps.</p>
-
-                    <p>First, data would be pulled from Spotify's API and uploaded to an SQLite server. Data would then
-                        be read
-                        from
-                        the SQLite server and passed through a Flask API to gather the data for the visualization
-                        website.</p>
-
-                    <p>Note: This solution to gather data is not the most efficient, as it would be simpler to run the
-                        app and
-                        data
-                        through Python. However, as this project is a learning exercise, we wanted to utilize our
-                        knowledge of
-                        SQL
-                        databases.</p>
-                </div>
-
-                <hr class="m-0">
-                <div class="container my-4">
-                    <h1 class="text-success">Skills Applied/Libraries and Languages</h1>
-                    <p><span class="fw-bolder">Presentation:</span> For this project, I employed a combination of HTML,
-                        Bootstrap 5, CSS, and jQuery/JavaScript
-                        to
-                        meticulously design and structure our web pages and interactive visualizations.</p>
+                    <h2 class="text-success">Skills Applied/Libraries and Languages</h2>
+                    <p><span class="fw-bolder">Languages Used:</span> HTML, CSS, Python, Javascript, Jquery (Datatables)
+                    </p>
+                    </p><span class="fw-bolder">Tools Used:</span> Azure, Flask, Pandas, Jupyter Notebook, Sci-kit
+                    Learn, Spotipy, Bootstrap
+                    </p>
                 </div>
             </div>
+            
+            <footer class="container my-0">
+                &copy; 2023 Spotify ML. All rights reserved.
+            </footer>
         </div>
     </div>
-    <footer class="container my-0">
-        &copy; 2023 Spotify ML. All rights reserved.
-    </footer>
 
     <!-- Add Bootstrap JS and Popper.js for Bootstrap components -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>

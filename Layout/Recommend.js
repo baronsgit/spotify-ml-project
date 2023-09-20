@@ -18,7 +18,7 @@ $(document).ready(function () {
 });
 
 function testvalues() {
-    $("#artistInput").val("noname");
+    $("#artistInput").val("Eve");
     $("#popInput").val("50");
     loadPage();
 }
@@ -57,9 +57,8 @@ function plotDurationBarGraph(jsonData) {
         };
     });
 
-    // Create the layout for the scatter plot
     var layout = {
-        title: 'Popularity and Duration of Songs for ' + artistInput.value,
+        title: { text:'Popularity and Duration of Songs for ' + artistInput.value,font: { size: 10}},
         xaxis: {
             title: 'Duration'
         },
@@ -67,7 +66,8 @@ function plotDurationBarGraph(jsonData) {
             title: 'Popularity'
         },
         height:chartH,
-        width:chartW
+        width:chartW,
+        showlegend:false
     };
 
     Plotly.newPlot('bar', traces, layout);
@@ -117,13 +117,13 @@ function calculatePearsonCorrelationDP(jsonData) {
             mode: 'markers',
             type: 'scatter',
             name: song.song,
-            text: [song.song] // Text for hover
+            text: [song.song] 
         };
     });
 
-    // Create the layout for the scatter plot
+    
     var layout = {
-        title: 'Tempo and Energy of Songs for ' + artistInput.value,
+        title: { text:'Tempo and Energy of Songs for ' + artistInput.value,font: { size: 10}},
         xaxis: {
             title: 'Tempo'
         },
@@ -131,7 +131,8 @@ function calculatePearsonCorrelationDP(jsonData) {
             title: 'Energy'
         },
         height:chartH,
-        width:chartW
+        width:chartW,
+        showlegend:false
     };
 
     
@@ -182,13 +183,12 @@ function calculatePearsonCorrelationTE(jsonData) {
             mode: 'markers',
             type: 'scatter',
             name: song.song,
-            text: [song.song] // Text for hover
+            text: [song.song] 
         };
     });
 
-    // Create the layout for the scatter plot
     var layout = {
-        title: 'Correlation of Popularity and Danceability of Songs for ' + artistInput.value,
+        title: { text:'Popularity and Danceability of Songs for ' + artistInput.value,font: { size: 10}},
         xaxis: {
             title: 'Danceability'
         },
@@ -196,7 +196,8 @@ function calculatePearsonCorrelationTE(jsonData) {
             title: 'Popularity'
         },
         height: chartH,
-        width: chartW
+        width: chartW,
+        showlegend:false
     };
 
     
@@ -251,7 +252,7 @@ function calculatePearsonCorrelationDD(jsonData) {
     var trace = {
         domain: {x:[0, 100], y:[0,100]},
         value: averageEnergy,
-        title: {text: "Average Energy for Recommendations Based on " + artistInput.value, font: {size:15}},
+        title: {text: "Average Energy for Recommendations Based on " + artistInput.value, font: {size:14}},
         type: "indicator",
         mode: "gauge+number",
          height: 600,
